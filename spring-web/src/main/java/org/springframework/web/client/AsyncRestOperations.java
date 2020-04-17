@@ -231,6 +231,30 @@ public interface AsyncRestOperations {
 	ListenableFuture<?> put(URI url, @Nullable HttpEntity<?> request) throws RestClientException;
 
 
+	// PATCH
+
+	/**
+	 * Update a resource by PATCHing the given object to the URL,
+	 * and return the representation found in the response.
+	 * <p>The {@code request} parameter can be a {@link HttpEntity} in order to
+	 * add additional HTTP headers to the request.
+	 * <p><b>NOTE: The standard JDK HTTP library does not support HTTP PATCH.
+	 * You need to use the Apache HttpComponents or OkHttp request factory.</b>
+	 * @param url the URL
+	 * @param request the object to be PATCHed (may be {@code null})
+	 * @param responseType the type of the return value
+	 * @return the converted object
+	 * @since 4.3.5
+	 * @see HttpEntity
+	 * @see RestTemplate#setRequestFactory
+	 * @see org.springframework.http.client.HttpComponentsAsyncClientHttpRequestFactory
+	 * @see org.springframework.http.client.OkHttp3ClientHttpRequestFactory
+	 */
+	<T> ListenableFuture<ResponseEntity<T>> patchForObject(URI url, @Nullable HttpEntity<?> request, Class<T> responseType)
+			throws RestClientException;
+
+
+
 	// DELETE
 
 	/**
