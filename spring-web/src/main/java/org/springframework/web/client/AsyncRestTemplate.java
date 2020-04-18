@@ -370,7 +370,7 @@ public class AsyncRestTemplate extends org.springframework.http.client.support.I
 	// PATCH
 
 	@Override
-	public <T> ListenableFuture<ResponseEntity<T>> patchForObject(URI url, @Nullable HttpEntity<?> request, Class<T> responseType)
+	public <T> ListenableFuture<ResponseEntity<T>> patchForEntity(URI url, @Nullable HttpEntity<?> request, Class<T> responseType)
 			throws RestClientException {
 
 		AsyncRequestCallback asyncRequestCallback = httpEntityCallback(request, responseType);

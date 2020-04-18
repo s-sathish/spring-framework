@@ -250,7 +250,7 @@ public interface AsyncRestOperations {
 	 * @see org.springframework.http.client.HttpComponentsAsyncClientHttpRequestFactory
 	 * @see org.springframework.http.client.OkHttp3ClientHttpRequestFactory
 	 */
-	<T> ListenableFuture<ResponseEntity<T>> patchForObject(URI url, @Nullable HttpEntity<?> request, Class<T> responseType)
+	<T> ListenableFuture<ResponseEntity<T>> patchForEntity(URI url, @Nullable HttpEntity<?> request, Class<T> responseType)
 			throws RestClientException;
 
 
